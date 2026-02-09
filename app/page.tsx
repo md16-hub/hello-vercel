@@ -34,7 +34,7 @@ export default async function Home() {
                         borderRadius: '5px'
                     }}>
                         {/* Customize this line based on your table columns */}
-                        <strong>{item.name || 'No Name'}</strong>
+                        <strong>{item.content || 'No Content'}</strong>
                     </li>
                 ))}
             </ul>
