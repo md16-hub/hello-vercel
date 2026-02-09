@@ -10,7 +10,7 @@ export default async function Home() {
     // NOTE: I am using 'countries' as a placeholder.
     // Change 'countries' to match your actual table name if it is different.
     const { data, error } = await supabase
-        .from('countries')
+        .from('captions')
         .select('*');
 
     if (error) {
