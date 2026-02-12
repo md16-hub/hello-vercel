@@ -1,14 +1,13 @@
 import { createClient } from '@supabase/supabase-js';
 
-// Initialize Supabase Client using environment variables
+
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
+
 export default async function Home() {
-    // Fetch data from a pre-existing table.
-    // NOTE: I am using 'countries' as a placeholder.
-    // Change 'countries' to match your actual table name if it is different.
+
     const { data, error } = await supabase
         .from('captions')
         .select('*');
@@ -18,26 +17,32 @@ export default async function Home() {
     }
 
     return (
-        <main style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
-            <h1>Supabase Data List</h1>
+        <main style={{ padding: '2rem', fontFamily: 'sans-serif', maxWidth: '800px', margin: '0 auto' }}>
+            <h1>Supabase Captions</h1>
 
-            {/* Display error message if fetching fails */}
             {error && <p style={{color: 'red'}}>Error loading data: {error.message}</p>}
 
-            {/* Display the data in a list format */}
-            <ul style={{ listStyle: 'none', padding: 0 }}>
-                {data && data.map((item) => (
-                    <li key={item.id} style={{
-                        border: '1px solid #ccc',
-                        margin: '10px 0',
-                        padding: '10px',
-                        borderRadius: '5px'
-                    }}>
-                        {/* Customize this line based on your table columns */}
-                        <strong>{item.content || 'No Content'}</strong>
-                    </li>
-                ))}
-            </ul>
+            {}
+            <div style={{ display: 'grid', gap: '1rem' }}>
+                {data && data.length > 0 ? (
+                    data.map((item) => (
+                        <div key={item.id} style={{
+                            border: '1px solid #ddd',
+                            padding: '1rem',
+                            borderRadius: '8px',
+                            backgroundColor: '#f9f9f9'
+                        }}>
+                            {/* NOTE: Make sure 'text' or 'content' matches your Supabase column name! */}
+                            <p style={{ fontSize: '1.1rem', margin: 0 }}>
+                                {item.text || item.content || item.caption || JSON.stringify(item)}
+                            </p>
+                            <small style={{ color: '#666' }}>ID: {item.id}</small>
+                        </div>
+                    ))
+                ) : (
+                    <p>No data found in the 'captions' table.</p>
+                )}
+            </div>
         </main>
     );
 }
