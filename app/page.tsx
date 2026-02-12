@@ -35,10 +35,7 @@ export default async function Home() {
                                 {item.content || item.text || item.caption || JSON.stringify(item)}
                             </p>
 
-                            {/* ID included for technical verification, styled subtly */}
-                            <div style={{ marginTop: '10px', fontSize: '0.8rem', color: '#999' }}>
-                                <strong>Row ID:</strong> {item.id}
-                            </div>
+
                         </div>
                     ))
                 ) : (
