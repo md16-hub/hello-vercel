@@ -33,7 +33,7 @@ export default async function Home() {
             <div style={{ display: 'grid', gap: '1.5rem' }}>
                 {data && data.length > 0 ? (
                     data.map((item) => (
-                        <div key={item.id} style={{ border: '1px solid #eaeaea', padding: '1.5rem', borderRadius: '12px', boxShadow: '0 2px 4px rgba(0,0,0,0.05)' }}>
+                        <div key={item.id} style={{ border: '1px solid #eaeaea', padding: '1.5rem', borderRadius: '12px', boxShadow: '0 2px 4px rgba(0,0,0,0.05)',  backgroundColor: '#1f103b' }}>
                             <p style={{ fontSize: '1.2rem', marginBottom: '1rem', color: 'white' }}>
                                 {item.content}
                             </p>
