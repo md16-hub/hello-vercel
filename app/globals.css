@@ -1,8 +1,14 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
 
 :root {
-  --background: #1f103b;
-  --foreground: #ededed;
+  --background: #0d0015;
+  --foreground: #f0e6ff;
+  --accent-1: #ff2d78;
+  --accent-2: #00ffe0;
+  --accent-3: #ffe94a;
+  --card-bg: #1a0030;
+  --card-border: #4a0080;
 }
 
 @theme inline {
@@ -12,13 +18,48 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0d0015;
+    --foreground: #f0e6ff;
   }
 }
-
 body {
-  background: var(--background);
+  background: radial-gradient(ellipse at 20% 50%, #2d0050 0%, transparent 60%),
+  radial-gradient(ellipse at 80% 20%, #00173d 0%, transparent 50%),
+  radial-gradient(ellipse at 60% 80%, #1a0030 0%, transparent 60%),
+  #0d0015;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Space Mono', monospace;
+  min-height: 100vh;
 }
+
+h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.08em;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-3), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+h2, h3 {
+  font-family: 'Caveat', cursive;
+  color: var(--accent-3);
+  letter-spacing: 0.05em;
+}
+
+p {
+  font-family: 'Space Mono', monospace;
+  line-height: 1.8;
+  color: var(--foreground);
+}
+
+hr {
+  border-color: var(--card-border) !important;
+  opacity: 1 !important;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0d0015; }
+::-webkit-scrollbar-thumb { background: var(--accent-1); }
