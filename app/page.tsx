@@ -34,7 +34,7 @@ export default async function Home() {
                 {data && data.length > 0 ? (
                     data.map((item) => (
                         <div key={item.id} style={{ border: '1px solid #eaeaea', padding: '1.5rem', borderRadius: '12px', boxShadow: '0 2px 4px rgba(0,0,0,0.05)' }}>
-                            <p style={{ fontSize: '1.2rem', marginBottom: '1rem', color: '#111' }}>
+                            <p style={{ fontSize: '1.2rem', marginBottom: '1rem', color: 'white' }}>
                                 {item.content}
                             </p>
 
